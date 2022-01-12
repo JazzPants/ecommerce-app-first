@@ -8,18 +8,38 @@ class MainContent extends React.Component {
       {
         id: 1,
         name: "Scott",
-        phone: "123-456",
+        phone: "",
         address: { city: "New Delhi" },
+        photo: "",
       },
-      { id: 2, name: "Alex", phone: "345-632", address: { city: "Tokyo" } },
-      { id: 3, name: "May", phone: "564-521", address: { city: "London" } },
+      {
+        id: 2,
+        name: "Alex",
+        phone: null,
+        address: { city: "Tokyo" },
+        photo: "https://picsum.photos/id/237/60",
+      },
+      {
+        id: 3,
+        name: "May",
+        phone: "564-521",
+        address: { city: "London" },
+        photo: "https://picsum.photos/id/237/60",
+      },
       {
         id: 4,
         name: "Julie",
         phone: "891-321",
         address: { city: "Melbourne" },
+        photo: "https://picsum.photos/id/237/60",
       },
-      { id: 5, name: "John", phone: "581-136", address: { city: "New York" } },
+      {
+        id: 5,
+        name: "John",
+        phone: "581-136",
+        address: { city: "New York" },
+        photo: "https://picsum.photos/id/237/60",
+      },
     ],
   };
 
@@ -39,23 +59,13 @@ class MainContent extends React.Component {
           <thead>
             <tr>
               <th>id</th>
+              <th>Avatar</th>
               <th>Customer Name</th>
               <th>Phone</th>
               <th>City</th>
             </tr>
           </thead>
-          <tbody>
-            {this.state.customers.map((cust) => {
-              return (
-                <tr key={cust.id}>
-                  <td>{cust.id}</td>
-                  <td>{cust.name}</td>
-                  <td>{cust.phone}</td>
-                  <td>{cust.address.city}</td>
-                </tr>
-              );
-            })}
-          </tbody>
+          <tbody>{this.getCustomerRow()}</tbody>
         </table>
       </div>
     );
@@ -67,6 +77,56 @@ class MainContent extends React.Component {
       customerCount: 7,
     });
   };
+
+  getPhoneToRender = (phone) => {
+    return phone ? (
+      phone
+    ) : (
+      <div className="bg-warning p-1 text-center">No phone number</div>
+    );
+  };
+
+  getCustomerRow = () => {
+    return this.state.customers.map((cust, index) => {
+      return (
+        <tr key={cust.id}>
+          <td>{cust.id}</td>
+          <td>
+            <img src={cust.photo} alt="Customer Profile Image" />
+            <div>
+              <button
+                className="btn btn-sm btn-secondary"
+                onClick={() => {
+                  this.onChangePictureClick(cust, index);
+                }}
+              >
+                Change Picture
+              </button>
+            </div>
+          </td>
+          <td>{cust.name}</td>
+          <td>{this.getPhoneToRender(cust.phone)}</td>
+          <td>{cust.address.city}</td>
+        </tr>
+      );
+    });
+  };
+
+  //arrow function referring to callback WITH argument
+  onChangePictureClick = (customer, index) => {
+    console.log(customer);
+    console.log(index); //array index
+    let custArr = this.state.customers;
+    custArr[index].photo = "https://picsum.photos/id/55/60";
+    this.setState({ customers: custArr });
+  };
 }
+
+// className={this.customerNameStyle(cust.name)}
+// customerNameStyle = (custName) => {
+//     if (custName.startsWith("S")) return "green-highlight border-left";
+//     else if (custName.startsWith("J")) return "red-highlight border-right";
+//     else return {}; //return blank -> no style
+//   };
 
 export default MainContent;

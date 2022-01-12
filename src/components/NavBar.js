@@ -5,13 +5,13 @@ class NavBar extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Hello</h1>
+        {/* <h1>Hello</h1>
         <p className="highlight">My name is Babel</p>
-        <button className="btn btn-danger">Woops</button>
+        <button className="btn btn-danger">Woops</button> */}
         <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-style">
           <div className="container-fluid">
             <a className="navbar-brand" href="/#">
-              My App
+              eCommerce Website
             </a>
 
             <button
