@@ -12,6 +12,55 @@ class ShoppingCart extends Component {
       { id: 6, productName: "Logitech Keyboard", price: 450, quantity: 1 },
     ],
   };
+  //executes when user clicks the + button
+  handleIncrement = (product, maxValue) => {
+    // console.log("increment", product);
+    //clone state
+    //get index of product given by ProductShow
+    let allProducts = [...this.state.products];
+    let index = allProducts.indexOf(product);
+    console.log(allProducts[index]);
+    if (allProducts[index].quantity < maxValue) {
+      allProducts[index].quantity++;
+      //update state of ShoppingCart
+      this.setState({
+        products: allProducts,
+      });
+    }
+  };
+
+  handleDecrement = (product, minValue) => {
+    // console.log("decrement", product);
+    let allProducts = [...this.state.products];
+    let index = allProducts.indexOf(product);
+    console.log(allProducts[index]);
+    if (allProducts[index].quantity > minValue) {
+      allProducts[index].quantity--;
+      //update state of ShoppingCart
+      this.setState({
+        products: allProducts,
+      });
+    }
+  };
+
+  handleDelete = (product) => {
+    let allProducts = [...this.state.products];
+    let index = allProducts.indexOf(product);
+    //confirmation window
+    console.log(product.productName);
+    //confirmation pop-up
+    if (
+      window.confirm(
+        `Are you sure you want to remove ${product.productName} from your cart?`
+      )
+    )
+      //delete product based on given index
+      allProducts.splice(index, 1);
+    //update state of ShoppingCart
+    this.setState({
+      products: allProducts,
+    });
+  };
 
   render() {
     return (
@@ -22,10 +71,13 @@ class ShoppingCart extends Component {
             return (
               <ProductShow
                 key={product.id}
-                id={product.id}
-                productName={product.productName}
-                price={product.price}
-              />
+                product={product}
+                onIncrement={this.handleIncrement}
+                onDecrement={this.handleDecrement}
+                onDelete={this.handleDelete}
+              >
+                <button className="btn btn-primary">Buy Now</button>
+              </ProductShow>
             );
           })}
         </div>
@@ -33,5 +85,12 @@ class ShoppingCart extends Component {
     );
   }
 }
+//each ProductShow component contains a prop with the product object which contains info on the product,
+//in the child, this product passed back up in an onClick callback function, this.state.product is the exact product given as an argument to the decrement/increment functions
+//parents can pass either props and HTML elements(content such as the button) to children, you must render them in the child to make them appear
+// id={product.id}
+// productName={product.productName}
+// price={product.price}
+//product prop is an object (each product in the products array is an object!)
 
 export default ShoppingCart;

@@ -15,3 +15,7 @@
   color: purple;
   font-size: 25px;
 }
+
+.hand-icon {
+  cursor: pointer;
+}
