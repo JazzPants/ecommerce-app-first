@@ -1,7 +1,8 @@
 import React from "react";
-import MainContent from "../components/MainContent";
+// import MainContent from "../components/MainContent";
 import NavBar from "../components/NavBar";
 import ShoppingCart from "../containers/ShoppingCart";
+import Login from "../components/Login";
 // import React, { Component } from "react";
 
 class App extends React.Component {
@@ -10,6 +11,7 @@ class App extends React.Component {
       <React.Fragment>
         <NavBar />
         {/* <MainContent /> */}
+        <Login></Login>
         <ShoppingCart />
       </React.Fragment>
     );
