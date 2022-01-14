@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet, Link } from "react-router-dom";
 // import React, { Component } from "react";
 
 class NavBar extends React.Component {
@@ -10,7 +11,7 @@ class NavBar extends React.Component {
         <button className="btn btn-danger">Woops</button> */}
         <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-style">
           <div className="container-fluid">
-            <a className="navbar-brand" href="/#">
+            <a className="navbar-brand" href="/">
               eCommerce Website
             </a>
 
@@ -37,10 +38,26 @@ class NavBar extends React.Component {
                   </a>
                 </li> */}
                 <li className="nav-item">
-                  <a className="nav-link" href="/#">
-                    Home
-                  </a>
+                  <Link className="nav-link" to="/Login">
+                    Login
+                  </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/myaccount">
+                    My Account
+                  </Link>
+                </li>
+                {/* <li className="nav-item">
+                  <Link className="nav-link" to="/maincontent">
+                    Main Content
+                  </Link>
+                </li> */}
+                <li className="nav-item">
+                  <Link className="nav-link" to="/shoppingcart">
+                    Shopping Cart
+                  </Link>
+                </li>
+
                 {/* <li className="nav-item dropdown">
                   <a
                     className="nav-link dropdown-toggle"

@@ -8,12 +8,16 @@ class Login extends Component {
     this.state = { email: "", password: "", message: "" };
   }
 
-  onLoginClick = () => {
+  onLoginClick = async () => {
     console.log(this.state);
-    if (
-      this.state.email === "test@123.com" &&
-      this.state.password === "test123"
-    ) {
+
+    let response = await fetch(
+      `http://localhost:5000/users?email=${this.state.email}&password=${this.state.password}`,
+      { method: "GET" }
+    );
+    let body = await response.json();
+    console.log(body);
+    if (body.length > 0) {
       //success
       this.setState({
         message: <span className="text-success">Successfully logged in</span>,
@@ -30,7 +34,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="col-lg-9">
+      <div className="col-lg-5">
         <h4 className="m-1 p-2 border-bottom">Login</h4>
         {/* Email Input starts */}
         <div className="form-group form-row">

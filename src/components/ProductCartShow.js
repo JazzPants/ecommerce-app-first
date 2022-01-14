@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class ProductShow extends Component {
+class ProductCartShow extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,6 +11,7 @@ class ProductShow extends Component {
   render() {
     // console.log(this.props);
     return (
+      // <div className="row">
       <div className="col-lg-6">
         <div className="card m-3">
           <div className="card-body">
@@ -58,6 +59,7 @@ class ProductShow extends Component {
           </div>
         </div>
       </div>
+      // </div>
     );
   }
   //clean up phase
@@ -78,4 +80,4 @@ class ProductShow extends Component {
 //     price: this.props.product.price,
 //     quantity: this.props.product.quantity,
 
-export default ProductShow;
+export default ProductCartShow;
