@@ -12,7 +12,7 @@ class NavBar extends React.Component {
         <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-style">
           <div className="container-fluid">
             <a className="navbar-brand" href="/">
-              eCommerce Website
+              A Cool Shop
             </a>
 
             <button
