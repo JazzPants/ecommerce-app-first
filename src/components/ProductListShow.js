@@ -28,7 +28,8 @@ class ProductListShow extends Component {
                 {this.props.product.quantity}
               </span>
             </div>
-            <div className="float-end">{this.props.children}</div>
+            {/* <div className="float-end">{this.props.children}</div> */}
+            <button className="btn btn-primary float-end">Add to Cart</button>
           </div>
         </div>
       </div>
