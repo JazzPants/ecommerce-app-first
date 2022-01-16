@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Outlet, Link } from "react-router-dom";
 
 class ProductListShow extends Component {
   constructor(props) {
@@ -7,6 +8,10 @@ class ProductListShow extends Component {
     //   product: this.props.product,
     // };
   }
+
+  handleAddToCart = () => {
+    console.log(this.props.productInCart);
+  };
 
   render() {
     // console.log(this.props);
@@ -29,7 +34,16 @@ class ProductListShow extends Component {
               </span>
             </div>
             {/* <div className="float-end">{this.props.children}</div> */}
-            <button className="btn btn-primary float-end">Add to Cart</button>
+            <Link className="nav-link" to="/moredetails">
+              <button className="btn btn-secondary">More details</button>
+            </Link>
+
+            <button
+              className="btn btn-primary float-end"
+              onClick={this.handleAddToCart}
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>

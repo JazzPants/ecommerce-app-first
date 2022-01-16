@@ -9,6 +9,7 @@ class ShoppingList extends Component {
       products: [],
       selectedCategory: "allproducts",
       url: `https://fakestoreapi.com/products/`,
+      cartProducts: [],
     };
   }
 
@@ -176,6 +177,7 @@ class ShoppingList extends Component {
     }
   };
 
+  handleAddToCart = () => {};
   //   componentDidUpdate(prevState) {
   //     // console.log("componentDidUpdate");
   //     if (this.state.url !== prevState.url) {
@@ -229,6 +231,7 @@ class ShoppingList extends Component {
               <ProductListShow
                 key={product.id}
                 product={product}
+                productInCart={this.state.cartProducts}
               ></ProductListShow>
             );
           })}

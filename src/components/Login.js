@@ -8,29 +8,29 @@ class Login extends Component {
     this.state = { email: "", password: "", message: "" };
   }
 
-  onLoginClick = async () => {
-    console.log(this.state);
+  // onLoginClick = async () => {
+  //   console.log(this.state);
 
-    let response = await fetch(
-      `http://localhost:5000/users?email=${this.state.email}&password=${this.state.password}`,
-      { method: "GET" }
-    );
-    let body = await response.json();
-    console.log(body);
-    if (body.length > 0) {
-      //success
-      this.setState({
-        message: <span className="text-success">Successfully logged in</span>,
-      });
-    } else {
-      //error
-      this.setState({
-        message: (
-          <span className="text-danger">Invalid login, please try again.</span>
-        ),
-      });
-    }
-  };
+  //   let response = await fetch(
+  //     `http://localhost:5000/users?email=${this.state.email}&password=${this.state.password}`,
+  //     { method: "GET" }
+  //   );
+  //   let body = await response.json();
+  //   console.log(body);
+  //   if (body.length > 0) {
+  //     //success
+  //     this.setState({
+  //       message: <span className="text-success">Successfully logged in</span>,
+  //     });
+  //   } else {
+  //     //error
+  //     this.setState({
+  //       message: (
+  //         <span className="text-danger">Invalid login, please try again.</span>
+  //       ),
+  //     });
+  //   }
+  // };
 
   render() {
     return (

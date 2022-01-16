@@ -33,9 +33,9 @@ class NavBar extends React.Component {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 {/* <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <Link className="nav-link" to="/">
                     Home
-                  </a>
+                  </Link>
                 </li> */}
                 <li className="nav-item">
                   <Link className="nav-link" to="/Login">
@@ -47,11 +47,13 @@ class NavBar extends React.Component {
                     My Account
                   </Link>
                 </li>
-                {/* <li className="nav-item">
-                  <Link className="nav-link" to="/maincontent">
-                    Main Content
+
+                <li className="nav-item">
+                  <Link className="nav-link" to="/">
+                    Shopping List
                   </Link>
-                </li> */}
+                </li>
+
                 <li className="nav-item">
                   <Link className="nav-link" to="/shoppingcart">
                     Shopping Cart

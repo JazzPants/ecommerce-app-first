@@ -92,33 +92,33 @@ class ShoppingCart extends Component {
   //Executes after constructor and render method (including complete life cycles of child components, if there are any) of any current component
   //for HTTP requests (fetch!!), let's page render first then performs any requests!
   //function performs async., statements will wait until the PROMISE (await fetch) is completed, and then they are exectued
-  async componentDidMount() {
-    //wait for fetch, asynchronously
-    //convert body "readable stream" into object array
-    let response = await fetch("http://localhost:4000/products", {
-      //promise. successful fetch then response = ...
-      method: "GET",
-    });
-    //after receiving response, perofmr the following
-    let object = await response.json(); //get readable stream data and convert from json format to object array
-    this.setState({ products: object });
+  // async componentDidMount() {
+  //   //wait for fetch, asynchronously
+  //   //convert body "readable stream" into object array
+  //   let response = await fetch("http://localhost:4000/products", {
+  //     //promise. successful fetch then response = ...
+  //     method: "GET",
+  //   });
+  //   //after receiving response, perofmr the following
+  //   let object = await response.json(); //get readable stream data and convert from json format to object array
+  //   this.setState({ products: object });
 
-    console.log(object);
+  //   console.log(object);
 
-    // let promise = fetch("http://localhost:5000/products", { method: "GET" });
-    // promise.then((response) => {
-    //   console.log(response); //get response from server and print to console
-    //   let promise2 = response.json(); //response converted from json object to javascript array object
-    //   promise2.then((object) => {
-    //     //get "products" object and print it
-    //     console.log(object);
-    //     this.setState({ products: object });
-    //   });
-    // });
-    //javascript promise
-    //when promise is resolved (GET is successful), then invoke arrow function
-    //fetch data from data source
-  }
+  // let promise = fetch("http://localhost:5000/products", { method: "GET" });
+  // promise.then((response) => {
+  //   console.log(response); //get response from server and print to console
+  //   let promise2 = response.json(); //response converted from json object to javascript array object
+  //   promise2.then((object) => {
+  //     //get "products" object and print it
+  //     console.log(object);
+  //     this.setState({ products: object });
+  //   });
+  // });
+  //javascript promise
+  //when promise is resolved (GET is successful), then invoke arrow function
+  //fetch data from data source
+  // }
 
   //   componentDidUpdate(prevProps, prevState) {
   //     console.log(
@@ -130,21 +130,19 @@ class ShoppingCart extends Component {
   //     );
   //   } //render the componentDidUpdate
 
-  componentWillUnmount() {
-    console.log("componentWillUnmount phase - ShoppingCart");
-  }
+  // componentWillUnmount() {
+  //   console.log("componentWillUnmount phase - ShoppingCart");
+  // }
 }
 
 //use this condition to make http calls e.g.
 //if (prevProps.x === this.props.x) {
 //make http call
 //}
-
 //componentWillUnmount
 //cancel http requests
 //when there's a change of route
 //when a Parent deletes a child component
-
 //each ProductShow component contains a prop with the product object which contains info on the product,
 //in the child, this product passed back up in an onClick callback function, this.state.product is the exact product given as an argument to the decrement/increment functions
 //parents can pass either props and HTML elements(content such as the button) to children, you must render them in the child to make them appear
