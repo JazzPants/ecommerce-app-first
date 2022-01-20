@@ -5,6 +5,7 @@ class Home extends Component {
     return (
       <div>
         <h2>Home Page</h2>
+        <p>Select a link in the navigation bar!</p>
       </div>
     );
   }

@@ -49,7 +49,7 @@ class NavBar extends React.Component {
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">
+                  <Link className="nav-link" to="/shoppinglist">
                     Shopping List
                   </Link>
                 </li>
@@ -112,6 +112,7 @@ class NavBar extends React.Component {
             </div>
           </div>
         </nav>
+        <Outlet />
       </React.Fragment>
     );
   }

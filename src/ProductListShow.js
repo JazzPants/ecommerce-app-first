@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 import { Outlet, Link } from "react-router-dom";
+import ProductFocus from "./ProductFocus";
 
 class ProductListShow extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   product: this.props.product,
-    // };
+    this.state = {
+      product: this.props.product,
+    };
   }
 
-  handleAddToCart = () => {
-    console.log(this.props.productInCart);
-  };
-
+  // componentDidUpdate() {
+  //   console.log(this.state.productsInCart);
+  // }
   render() {
     // console.log(this.props);
+
     return (
       // <div className="row">
       <div className="col-lg-6">
@@ -40,7 +41,7 @@ class ProductListShow extends Component {
 
             <button
               className="btn btn-primary float-end"
-              onClick={this.handleAddToCart}
+              onClick={() => this.props.onHandleAddToCart(this.state.product)}
             >
               Add to Cart
             </button>

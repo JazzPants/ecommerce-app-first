@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar";
-import ShoppingCart from "../containers/ShoppingCart";
+import ShoppingCart from "./containers/ShoppingCart";
 
 class Login extends Component {
   constructor(props) {

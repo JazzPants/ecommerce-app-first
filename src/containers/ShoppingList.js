@@ -1,5 +1,8 @@
 import React, { Component, useState, useEffect } from "react";
-import ProductListShow from "../components/ProductListShow";
+import ProductListShow from "../ProductListShow";
+import { Outlet, Link } from "react-router-dom";
+import ProductCartShow from "../ProductCartShow";
+import ProductFocus from "../ProductFocus";
 
 class ShoppingList extends Component {
   constructor(props) {
@@ -9,7 +12,8 @@ class ShoppingList extends Component {
       products: [],
       selectedCategory: "allproducts",
       url: `https://fakestoreapi.com/products/`,
-      cartProducts: [],
+      productsInCart: [],
+      // cartProducts: [],
     };
   }
 
@@ -177,7 +181,6 @@ class ShoppingList extends Component {
     }
   };
 
-  handleAddToCart = () => {};
   //   componentDidUpdate(prevState) {
   //     // console.log("componentDidUpdate");
   //     if (this.state.url !== prevState.url) {
@@ -205,6 +208,16 @@ class ShoppingList extends Component {
 
   //render products
 
+  // need to finish add to cart method
+  handleAddToCart = (product) => {
+    this.setState({
+      productsInCart: [...this.state.productsInCart, product],
+    });
+    setTimeout(() => {
+      console.log(this.state.productsInCart);
+    }, 2000);
+  };
+
   //add nested route to one page product
   render() {
     return (
@@ -231,11 +244,14 @@ class ShoppingList extends Component {
               <ProductListShow
                 key={product.id}
                 product={product}
-                productInCart={this.state.cartProducts}
+                onHandleAddToCart={this.handleAddToCart}
+
+                // productInCart={this.state.cartProducts}
               ></ProductListShow>
             );
           })}
         </div>
+        <Outlet />
       </div>
     );
   }
